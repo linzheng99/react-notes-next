@@ -5,7 +5,8 @@
       "@/actions": ["app/[lng]/actions.js"],
       "@/*": ["./*"],
       "@/components/*" : ["components/*"],
-      "@/lib/*": ["lib/*"]
+      "@/lib/*": ["lib/*"],
+      "auth": ["./auth"]
     }
   }
 }
