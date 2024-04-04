@@ -1,4 +1,6 @@
-import { signIn, signOut, auth } from "auth"
+import { signIn, signOut } from "auth"
+import { auth } from "auth"
+import Link from 'next/link'
 
 function SignIn({
   provider,
@@ -34,12 +36,11 @@ function SignOut(props) {
 export default async function Header() {
   const session = await auth()
   return (
-    <header style={{ display: "flex", "justifyContent": "space-around" }}>
-      {
-        session?.user
-          ? <span style={{ display: "flex", "alignItems": "center" }}>{session?.user.name}<SignOut /></span>
-          : <SignIn />
-      }
+    <header style={{display: "flex", "justifyContent": "space-around"}}>
+        <Link href="/client">Client Side Component</Link>
+        {
+          !session?.user ? <SignIn /> : <span style={{display: "flex", "alignItems": "center"}}>{session?.user.name}   <SignOut /></span>
+        }
     </header>
   )
 }
